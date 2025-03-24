@@ -1,4 +1,12 @@
-import { Component, computed, input, Input } from '@angular/core';
+import {
+  Component,
+  computed,
+  EventEmitter,
+  input,
+  Input,
+  Output,
+} from '@angular/core';
+import { DUMMY_USERS } from '../dummy-user';
 
 @Component({
   selector: 'app-user',
@@ -7,24 +15,17 @@ import { Component, computed, input, Input } from '@angular/core';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  // inputs are also properties of the class component and we use property binding to pass them to our components
-  // @Input({ required: true }) avatar!: string;
-  // @Input({ required: true }) name!: string;
+  @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) name!: string;
+  @Output() select = new EventEmitter<string>();
+  users = DUMMY_USERS;
 
-  // Signal input definition
-  avatar = input.required<string>();
-  name = input.required<string>();
-
-  // Signal input usage
-  // get imagePath(): string {
-  //   return 'users/' + this.avatar();
-  // }
-
-  // Computed Signal input definition
-  imagePath = computed(() => 'users/' + this.avatar());
+  get imagePath(): string {
+    return 'users/' + this.avatar;
+  }
 
   onSelectUser() {
-    // Signal input can not be set from inside the component
-    // this.name.set()
+    const userId = this.users.find((user) => user.name === this.name)?.id;
+    this.select.emit(userId);
   }
 }

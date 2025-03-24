@@ -2,22 +2,47 @@
 <main>
   <ul id="users">
     <li>
-      <app-user [avatar]="users[0].avatar" [name]="users[0].name" />
+      <app-user
+        [avatar]="users[0].avatar"
+        [name]="users[0].name"
+        (select)="catchSelectedUserId($event)"
+      />
     </li>
     <li>
-      <app-user [avatar]="users[1].avatar" [name]="users[1].name" />
+      <app-user
+        [avatar]="users[1].avatar"
+        [name]="users[1].name"
+        (select)="catchSelectedUserId($event)"
+      />
     </li>
     <li>
-      <app-user [avatar]="users[2].avatar" [name]="users[2].name" />
+      <app-user
+        [avatar]="users[2].avatar"
+        [name]="users[2].name"
+        (select)="catchSelectedUserId($event)"
+      />
     </li>
     <li>
-      <app-user [avatar]="users[3].avatar" [name]="users[3].name" />
+      <app-user
+        [avatar]="users[3].avatar"
+        [name]="users[3].name"
+        (select)="catchSelectedUserId($event)"
+      />
     </li>
     <li>
-      <app-user [avatar]="users[4].avatar" [name]="users[4].name" />
+      <app-user
+        [avatar]="users[4].avatar"
+        [name]="users[4].name"
+        (select)="catchSelectedUserId($event)"
+      />
     </li>
     <li>
-      <app-user [avatar]="users[5].avatar" [name]="users[5].name" />
+      <app-user
+        [avatar]="users[5].avatar"
+        [name]="users[5].name"
+        (select)="catchSelectedUserId($event)"
+      />
     </li>
   </ul>
+  <div>{{ selectedUserId }}</div>
 </main>

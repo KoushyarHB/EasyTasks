@@ -12,4 +12,9 @@ import { DUMMY_USERS } from './dummy-user';
 export class AppComponent {
   title = '1-first-test';
   users = DUMMY_USERS;
+  selectedUserId: any;
+
+  catchSelectedUserId(selectedUserId: string) {
+    this.selectedUserId = selectedUserId;
+  }
 }
