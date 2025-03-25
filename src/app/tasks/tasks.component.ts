@@ -1,7 +1,6 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { dummyTasks } from '../dummy-tasks';
-import { ITask } from '../../../types/types';
 
 @Component({
   selector: 'app-tasks',

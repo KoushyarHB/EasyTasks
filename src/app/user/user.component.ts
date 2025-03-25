@@ -7,7 +7,7 @@ import {
   output,
   Output,
 } from '@angular/core';
-import { IUser } from '../../../types/types';
+import { type IUser } from './user.model';
 
 @Component({
   selector: 'app-user',
