@@ -7,7 +7,7 @@ import {
   output,
   Output,
 } from '@angular/core';
-import { DUMMY_USERS } from '../dummy-user';
+import { IUser } from '../../../types/types';
 
 @Component({
   selector: 'app-user',
@@ -16,16 +16,14 @@ import { DUMMY_USERS } from '../dummy-user';
   styleUrl: './user.component.css',
 })
 export class UserComponent {
-  @Input({ required: true }) id!: string;
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  @Input({ required: true }) user!: IUser;
   @Output() select = new EventEmitter<string>();
 
   get imagePath(): string {
-    return 'users/' + this.avatar;
+    return 'users/' + this.user.avatar;
   }
 
   onSelectUser() {
-    this.select.emit(this.id);
+    this.select.emit(this.user.id);
   }
 }
