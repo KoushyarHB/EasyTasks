@@ -1,6 +1,7 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { dummyTasks } from '../dummy-tasks';
+import { ITask } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -28,7 +29,13 @@ export class TasksComponent {
   //   this.tasks = dummyTasks.filter((task) => task.userId === this.id);
   // }
 
+  tasks: ITask[] = dummyTasks;
+
   get selectedUserTasks() {
-    return dummyTasks.filter((task) => task.userId === this.id);
+    return this.tasks.filter((task) => task.userId === this.id);
+  }
+
+  onCompleteTask(id: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 }
