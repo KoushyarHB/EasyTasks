@@ -13,7 +13,6 @@
     }
   </ul>
 </section>
-<app-new-task-modal
-  [isOpen]="isNewTaskModalOpen"
-  (close)="onCloseNewTaskModal()"
-></app-new-task-modal>
+@if (isNewTaskModalOpen) {
+<app-new-task-modal (close)="onCloseNewTaskModal()"></app-new-task-modal>
+}

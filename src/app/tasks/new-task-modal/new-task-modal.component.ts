@@ -1,13 +1,18 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-new-task-modal',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './new-task-modal.component.html',
   styleUrl: './new-task-modal.component.css',
 })
 export class NewTaskModalComponent {
-  @Input({ required: true }) isOpen!: boolean;
+  enteredTitle = '';
+  enteredSummary = '';
+  enteredDate = '';
+
+  // @Input({ required: true }) isOpen!: boolean;
 
   // THE WRONG WAY TO CLOSE THE MODAL:
 
@@ -23,7 +28,7 @@ export class NewTaskModalComponent {
 
   // THE RIGHT WAY TO CLOSE THE MODAL:
 
-  @Output() close = new EventEmitter();
+  @Output() close = new EventEmitter<void>();
 
   closeModal() {
     this.close.emit();

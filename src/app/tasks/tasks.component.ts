@@ -13,7 +13,7 @@ import { NewTaskModalComponent } from './new-task-modal/new-task-modal.component
 export class TasksComponent {
   @Input() name: string | undefined;
   @Input() id: string | undefined;
-  isNewTaskModalOpen!: boolean;
+  isNewTaskModalOpen = false;
 
   // tasks: ITask[] = [];
 
