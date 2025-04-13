@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -8,9 +8,9 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './new-task-modal.component.css',
 })
 export class NewTaskModalComponent {
-  enteredTitle = '';
-  enteredSummary = '';
-  enteredDate = '';
+  enteredTitle = signal('');
+  enteredSummary = signal('');
+  enteredDate = signal('');
 
   // @Input({ required: true }) isOpen!: boolean;
 
